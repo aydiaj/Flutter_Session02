@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c32">
+  <meta name="description"
+    content="SICT235 interactive Flutter Codelab 02: install VS Code and Flutter, explore a visual UI playground while Flutter downloads, run a Flutter app on the web, and submit evidence.">
+  <title>Codelab 02 · Prepare, Verify & Run Your First Flutter App | SICT235</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=20261107d">
+  <script defer src="js/app.js?v=20261107d"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#content">Skip to lesson</a>
+  <div class="app-shell">
+    <div class="mobile-scrim" id="scrim" hidden></div>
+    <aside class="sidebar" id="sidebar" aria-label="Lesson navigation">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="27" height="27">
+            <path d="M17 3H28L9 22H1L17 3ZM13 24l8-8h-8l-4 4 4 4Zm3 3h11l-6-6-5 6Z" fill="currentColor" />
+          </svg></div>
+        <div><span class="brand-label">TVET CODELAB STUDIO</span><strong>Mobile Apps · PDB2</strong></div>
+        <button class="icon-button sidebar-close" id="sidebarClose" aria-label="Close navigation"
+          type="button">×</button>
+      </div>
+      <div class="sidebar-course"><span class="course-code">SICT235 · 2026–2027</span>
+        <h2>Preparing your<br>development environment</h2>
+        <p>02 / Setup → Playground → First App</p>
+        <div class="progress-summary"><span>Your progress</span><strong id="progressLabel">0 of 8</strong></div>
+        <div class="progress-track" role="progressbar" aria-label="Lesson progress" aria-valuemin="0"
+          aria-valuemax="100" aria-valuenow="0" id="progressbar">
+          <div id="progressFill"></div>
+        </div>
+      </div>
+      <nav aria-label="Codelab sections">
+        <ol class="step-nav" id="stepList">
+          <li><button class="step-link active" data-step="0" aria-current="step"><span
+                class="step-number">01</span><span class="step-nav-text">Welcome & roadmap<small>5
+                  min</small></span><span class="step-check" aria-hidden="true">✓</span></button></li>
+          <li><button class="step-link" data-step="1"><span class="step-number">02</span><span
+                class="step-nav-text">Developer toolkit<small>10 min</small></span><span class="step-check"
+                aria-hidden="true">✓</span></button></li>
+          <li><button class="step-link" data-step="2"><span class="step-number">03</span><span
+                class="step-nav-text">Before installation<small>10 min</small></span><span class="step-check"
+                aria-hidden="true">✓</span></button></li>
+          <li><button class="step-link" data-step="3"><span class="step-number">04</span><span
+                class="step-nav-text">Install & configure<small>35 min</small></span><span class="step-check"
+                aria-hidden="true">✓</span></button></li>
+          <li><button class="step-link" data-step="4"><span class="step-number">05</span><span
+                class="step-nav-text">Flutter UI playground<small>10 min</small></span><span class="step-check"
+                aria-hidden="true">✓</span></button></li>
+          <li><button class="step-link" data-step="5"><span class="step-number">06</span><span
+                class="step-nav-text">Flutter Doctor<small>15 min</small></span><span class="step-check"
+                aria-hidden="true">✓</span></button></li>
+          <li><button class="step-link" data-step="6"><span class="step-number">07</span><span class="step-nav-text">Run
+                your first app<small>25 min</small></span><span class="step-check" aria-hidden="true">✓</span></button>
+          </li>
+          <li><button class="step-link" data-step="7"><span class="step-number">08</span><span
+                class="step-nav-text">Submit & next steps<small>10 min</small></span><span class="step-check"
+                aria-hidden="true">✓</span></button></li>
+        </ol>
+      </nav>
+      <div class="sidebar-extras"><span class="nav-heading">LEARNING EXTRAS</span>
+        <button class="extra-link" data-step="android"><span aria-hidden="true">▤</span> Android & Xiaomi phone <span
+            class="extra-label">Optional</span></button>
+        <a class="extra-link" href="sources.html"><span aria-hidden="true">↗</span> Sources & references</a>
+        <a class="extra-link" href="resources/setup-checklist.html"><span aria-hidden="true">▧</span> Print-friendly
+          checklist</a>
+      </div>
+      <div class="sidebar-foot">UNRWA Gaza Training Centre<br>Programming & Databases · TVET L2</div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar"><button class="icon-button menu-toggle" id="menuToggle" aria-label="Open navigation"
+          type="button">☰</button>
+        <div class="breadcrumbs">SICT235 <span>/</span> Flutter Codelabs <span>/</span> <b>Session 02</b></div>
+        <div class="top-actions"><span class="time-chip">◷ 120 min</span><button id="themeToggle" class="icon-button"
+            aria-label="Toggle light or dark mode" title="Toggle light/dark">◐</button></div>
+      </header>
+      <main id="content" tabindex="-1" class="main-content">
+        <section class="lesson active" data-panel="0" aria-labelledby="s01-title">
+          <div class="hero">
+            <div class="hero-copy"><span class="eyebrow">SESSION 02 · GUIDED PRACTICAL LAB</span>
+              <h1 id="s01-title">Set up. Check.<br><em>Launch.</em></h1>
+              <p>Turn your laptop into a Flutter development environment
+                <br>—and launch your first real app in a browser.
+              </p>
+              <div class="hero-tags"><span>VS Code</span><span>Dart</span><span>Flutter</span><span>Chrome / Edge</span>
+              </div>
+            </div>
+          </div>
+          <div class="intro-line">
+            <div><span class="overline">START HERE</span>
+              <h2>Today, you're building your setup</h2>
+            </div><span class="duration">05 MIN</span>
+          </div>
+          <p class="lead">By the end of this lab, you'll install the essential developer tools, understand how they
+            connect, experiment with a tiny visual app while your SDK downloads, start the default Flutter app, and
+            provide evidence from <strong>your own computer</strong>.</p>
+          <div class="teacher-note"><img src="images/dash-teacher.webp"
+              alt="Blue Dash owl wearing a graduation cap and waving">
+            <div><strong>Dash says</strong>
+              <p>Today is not about memorizing Flutter widgets. It's about preparing your workspace and proving it
+                works. We'll explore the code properly in later sessions.</p>
+            </div>
+          </div>
+          <div class="three-col">
+            <div class="mini-card">
+              <span class="mini-icon">1</span><strong>Prepare</strong>
+              <p>Install VS Code, the Flutter & Dart extensions, the Flutter SDK, and the necessary setup tools.</p>
+            </div>
+            <div class="mini-card">
+              <span class="mini-icon">2</span><strong>Verify</strong>
+              <p>Check Dart, Flutter Doctor and the available browser targets.</p>
+            </div>
+            <div class="mini-card">
+              <span class="mini-icon">3</span><strong>Launch</strong>
+              <p>Create a starter Flutter app, run it in Chrome/Edge and save screenshots.</p>
+            </div>
+          </div>
+          <div class="section-heading">
+            <h3>Our 120-minute route</h3><span>8 steps</span>
+          </div>
+          <div class="timeline-grid" id="timeline"></div>
+          <div class="notice info"><strong>Required work:</strong> Your first Flutter app must run in a web browser and
+            you must submit five authentic screenshots. Android Studio and physical Android devices are a supported
+            <strong>optional follow-up</strong>, outside today's 120 minutes.
+          </div>
+        </section>
+
+        <section class="lesson" data-panel="1" aria-labelledby="s02-title" hidden>
+          <div class="section-top"><span class="overline">STEP 02 · CONCEPTS</span><span class="duration">10 MIN</span>
+          </div>
+          <h1 id="s02-title">Meet your developer toolkit</h1>
+          <p class="lead">You are assembling several tools. They work <strong>together</strong>, but each has a
+            different job. <br>Learn their roles before clicking Install.</p>
+          <figure class="diagram"><img src="images/toolchain-targets.svg"
+              alt="A basic web-development workflow from VS Code through the Flutter SDK and Dart SDK to a Flutter app in Chrome or Edge. Other targets, such as Android and iOS, require additional platform-specific tools.">
+            <figcaption>We start with <strong>web</strong> because it needs only Chrome or Edge beyond the Flutter
+              setup, which means no seperate sdk is needed. Other targets require extra tools: <strong>Android
+                SDK</strong> for Android, <strong>Xcode on a
+                Mac</strong> for iOS, or platform-specific desktop build tools. The comparison just below explains each
+              option.</figcaption>
+          </figure>
+          <div class="concept-block"><span class="overline">IMPORTANT DISTINCTION · HOST VS TARGET</span>
+            <h2>One codebase, different target toolchains</h2>
+            <p><strong>Host OS</strong> means the operating system on your development laptop. <strong>Target
+                platform</strong> means where the finished app will run. Flutter supplies the shared framework, but
+              building for some targets needs their own platform SDK/compiler.</p>
+            <figure class="diagram"><img src="images/target-platforms.svg"
+                alt="Flutter on the development computer can target the web with Chrome/Edge only, Android with Android SDK, Windows desktop with Visual Studio C++ tools, or iOS with macOS and Xcode">
+              <figcaption>Concept diagram · These are examples of additional target-specific toolchains, not four things
+                to install now.</figcaption>
+            </figure>
+            <div class="platform-choices">
+              <div><strong>Web · today's route</strong><span>Chrome / Edge; no separate web or Android SDK is
+                  required.</span></div>
+              <div><strong>Android · optional extension</strong><span>Android SDK and platform tools, commonly installed
+                  with Android Studio; physical phone or emulator.</span></div>
+              <div><strong>Windows desktop</strong><span>Visual Studio (not VS Code) with the C++ desktop
+                  workload.</span></div>
+              <div><strong>iOS</strong><span>Apple computer with Xcode and iOS tooling.</span></div>
+            </div>
+            <p class="expected"><strong>Example:</strong> You can develop on <strong>Windows 11</strong> and run your
+              Flutter app in <strong>Chrome</strong> without installing Android Studio. If you later choose a
+              <strong>Xiaomi Android phone</strong> as the target, install and configure the <strong>Android
+                SDK</strong> first. We'll walk through that in the optional Android guide.
+            </p>
+          </div>
+          <div class="tool-grid">
+            <div class="tool-card"><span class="tool-mark vs">VS</span>
+              <div>
+                <h3>VS Code <small>Main editor</small></h3>
+                <p>The workspace where you open projects, write code, use extensions and start debugging.</p>
+              </div>
+            </div>
+            <div class="tool-card"><span class="tool-mark flutter">F</span>
+              <div>
+                <h3>Flutter SDK <small>Required</small></h3>
+                <p>The framework and command-line tools used to create, build and run Flutter apps.</p>
+              </div>
+            </div>
+            <div class="tool-card"><span class="tool-mark dart">D</span>
+              <div>
+                <h3>Dart SDK <small>Included with Flutter</small></h3>
+                <p>The Dart compiler and tools. You normally <strong>do not</strong> install a separate Dart SDK for
+                  Flutter.</p>
+              </div>
+            </div>
+            <div class="tool-card"><span class="tool-mark git">G</span>
+              <div>
+                <h3>Git <small>Required for this install path</small></h3>
+                <p>A supporting tool Flutter uses for SDK downloads, version control and updates. You do not need to
+                  learn Git commands today—we will simply install it and check its version.</p>
+              </div>
+            </div>
+            <div class="tool-card"><span class="tool-mark ext">+</span>
+              <div>
+                <h3>Flutter & Dart extensions <small>Required in VS Code</small></h3>
+                <p>Make VS Code understand Flutter/Dart commands, syntax, debugging and project tools.</p>
+              </div>
+            </div>
+            <div class="tool-card"><span class="tool-mark chrome">◎</span>
+              <div>
+                <h3>Chrome / Edge <small>Required web target</small></h3>
+                <p>Runs the app while you develop. No Android emulator is needed for the web route.</p>
+              </div>
+            </div>
+          </div>
+          <div class="activity">
+            <div class="activity-header"><span class="activity-icon">?</span>
+              <div>
+                <h3>Quick check: who does what?</h3>
+                <p>Choose the right tool for each job. Answering is for practice, not a grade.</p>
+              </div>
+            </div>
+            <div class="quiz" data-quiz="tool">
+              <p class="question">Which tool installs Flutter's language support into VS Code?</p>
+              <div class="answer-row"><button data-answer="incorrect">Chrome</button><button
+                  data-answer="correct">Flutter extension (which brings Dart)</button><button
+                  data-answer="incorrect">Android emulator</button></div>
+              <p class="feedback" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="notice subtle"><strong>Remember:</strong> VS Code is an editor. Flutter is an SDK. Dart is the
+            language. A browser (or later an Android phone) is where your app runs.</div>
+        </section>
+
+        <section class="lesson" data-panel="2" aria-labelledby="s03-title" hidden>
+          <div class="section-top"><span class="overline">STEP 03 · PRE-FLIGHT CHECK</span><span class="duration">10
+              MIN</span></div>
+          <h1 id="s03-title">Before installing anything</h1>
+          <p class="lead">Preparing the basics now avoids common setup problems later. The instructions mainly follow
+            <strong>Windows 11</strong>; other OSs have separate tabs in Flutter's official install guide.
+          </p>
+          <div class="task-card">
+            <div class="task-label">Goal</div>
+            <h3>Check that your laptop is ready</h3>
+            <ol class="instruction-list">
+              <li><strong>Confirm your system:</strong> Windows 11 (or another currently supported OS). Use
+                <kbd>Win</kbd> + <kbd>I</kbd> → <em>System → About</em> to check system type and memory.
+              </li>
+              <li><strong>Check available storage:</strong> installation and project caches take space. Prefer an SSD,
+                free several gigabytes, and avoid a nearly full system drive.</li>
+              <li><strong>Check internet:</strong> Git, VS Code, Flutter and some dependencies require downloads.
+                Download at a stable time and keep power connected.</li>
+              <li><strong>Confirm a web browser:</strong> install Chrome or Edge if necessary. Android Studio, emulators
+                and phones are <strong>not required</strong> for the core web setup.</li>
+              <li><strong>Check Git:</strong> open PowerShell or VS Code's terminal and run the command below.</li>
+            </ol>
+            <div class="command">
+              <div class="command-bar"><span>PowerShell · check Git</span><button class="copy-btn"
+                  data-copy="git --version" type="button">Copy</button></div>
+              <pre><code>git --version</code></pre>
+            </div>
+            <p class="expected"><strong>Expected:</strong> a Git version number, such as <code>git version x.y.z</code>.
+              The numbers will vary. If the command is not recognized, install Git and reopen the terminal.</p>
+            <div class="link-row"><a href="https://git-scm.com/downloads/win" target="_blank" rel="noopener">Official
+                Git for Windows ↗</a><a href="https://code.visualstudio.com/download" target="_blank"
+                rel="noopener">Official VS Code download ↗</a><a href="https://docs.flutter.dev/install/with-vs-code"
+                target="_blank" rel="noopener">Flutter installation guide ↗</a></div>
+          </div>
+          <div class="two-col">
+            <div class="card"><span class="card-caption">RESOURCE NOTE</span>
+              <h3>What counts as a requirement?</h3>
+              <p>The textbook recommends comfortable hardware, including 8 GB+ RAM, an SSD and ample storage. These are
+                <strong>practical recommendations</strong>, not universal minimums for web-only Flutter work.
+              </p>
+              <p>Do not spend time installing a heavy emulator on an ordinary laptop today.</p>
+            </div>
+            <div class="card"><span class="card-caption">FOR INTERRUPTED INTERNET</span>
+              <h3>Plan your downloads</h3>
+              <p>Save this Codelab locally or use its text checklist. Try the on-page mini app playground even without
+                internet, and finish large downloads after class. The playground is a visual simulation, not a Dart
+                compiler.</p>
+            </div>
+          </div>
+          <div class="notice warning"><strong>Safe setup:</strong> download SDKs and drivers from official providers
+            only. Do not disable Windows security controls or use unknown third-party “Flutter installers.”</div>
+        </section>
+
+        <section class="lesson" data-panel="3" aria-labelledby="s04-title" hidden>
+          <div class="section-top"><span class="overline">STEP 04 · PRACTICAL SETUP</span><span class="duration">35
+              MIN</span></div>
+          <h1 id="s04-title">Install VS Code + Flutter</h1>
+          <p class="lead">There are <strong>two legitimate ways</strong> to get the Flutter SDK: let VS Code download it
+            (recommended), or download the stable SDK ZIP manually and extract it. <strong>Choose one route, not
+              both.</strong> Both end in the same Flutter SDK folder and PATH configuration.</p>
+          <div class="numbered"><span>01</span>
+            <div>
+              <h3>Install VS Code and open Extensions</h3>
+              <p>Download VS Code from <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">the
+                  official site ↗</a>. Launch it and press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd> to open the
+                Extensions view.</p>
+            </div>
+          </div>
+          <div class="numbered"><span>02</span>
+            <div>
+              <h3>Install the Flutter extension</h3>
+              <p>Search for <strong>Flutter</strong>, choose the extension published by <strong>Dart Code</strong>, and
+                select <strong>Install</strong>. It also installs the Dart extension. Verify both show <strong>Installed
+                  / Enabled</strong>.</p>
+              <figure class="diagram"><img src="images/vs-code-extensions.svg"
+                  alt="Illustrative VS Code Extensions screen showing Flutter and Dart as installed">
+                <figcaption>Original illustrative UI—not an actual screenshot of your machine. Take your own image for
+                  submission.</figcaption>
+              </figure>
+              <div class="checkpoint"><strong>Evidence 01</strong><span>Capture the Extensions view showing Flutter and
+                  Dart installed: <code>01-vscode-extensions.png</code>.</span></div>
+            </div>
+          </div>
+          <div class="section-heading">
+            <h3 id="space1">Choose ONE installation route</h3><span>Both are supported</span>
+          </div>
+          <div class="install-choice-grid"><a href="#method-vscode" class="method-choice" data-jump="space1"><b>A
+                · Recommended</b><span>Download through VS Code</span></a><a href="#method-manual" class="method-choice"
+              data-jump="space2"><b>B · Alternative</b><span>Download and extract the Flutter ZIP</span></a>
+          </div>
+          <div class="numbered" id="method-vscode"><span>03A</span>
+            <div>
+              <h3>Route A — Let VS Code fetch the SDK</h3>
+              <ol class="instruction-list">
+                <li>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open the <strong>Command
+                    Palette</strong>.</li>
+                <li>Type <code>Flutter: New Project</code> and select it.</li>
+                <li>If prompted that no Flutter SDK is installed, choose <strong>Download SDK</strong>.</li>
+                <li>Choose a writable <strong>parent folder</strong> where the SDK will be cloned; for example
+                  <code>C:\src</code> if you have permission. Choose <strong>Clone Flutter</strong>.
+                </li>
+                <li>Allow the download and extraction to finish. Avoid folders requiring administrator-only write
+                  access.</li>
+                <li>When asked, choose <strong>Add SDK to PATH</strong>; close and reopen terminals and restart VS Code.
+                </li>
+              </ol>
+              <p class="expected"><strong>Important:</strong> This session's *first project* is created in Step 07,
+                after verification. If VS Code continues to a project-creation prompt at this point, you may cancel it
+                and return later.</p>
+            </div>
+          </div>
+          <div class="play-download-invite" id="space2">
+            <div><strong>⏳ Flutter still downloading? Make the waiting time fun!</strong>
+              <p>Leave your VS Code download running and explore a tiny app without programming. You can return to this
+                installation step afterward.</p>
+            </div><button type="button" id="playFromInstall" class="btn playful">✦ Play while downloading →</button>
+          </div>
+          <div class="numbered" id="method-manual"><span>03B</span>
+            <div>
+              <h3>Route B — Download and extract Flutter manually</h3>
+              <p>This is a valid alternative when you already have an official SDK archive or want direct control of
+                where it is stored. Install the <strong>stable Windows SDK ZIP</strong> for your machine architecture;
+                don't download a Dart SDK separately.</p>
+              <ol class="instruction-list">
+                <li>Open the <a href="https://docs.flutter.dev/install/manual" target="_blank" rel="noopener">official
+                    manual-install guide ↗</a> and select <strong>Windows</strong>. Download the <strong>latest stable
+                    Flutter SDK ZIP</strong> from the official link. File names change with Flutter releases.</li>
+                <li>Open File Explorer and create <code>%USERPROFILE%\develop</code> (for example
+                  <code>C:\Users\Student\develop</code>). Avoid <code>Program Files</code>, folders requiring
+                  administrator access, spaces/special characters, or cloud-synced locations for the SDK.
+                </li>
+                <li>Open <strong>Downloads</strong>, right-click the Flutter ZIP and choose <strong>Extract
+                    All</strong>. Extract into your <code>develop</code> folder, not into an additional nested
+                  <code>flutter\flutter</code> folder.
+                </li>
+                <li>Open <code>develop\flutter</code>. Check that it contains a folder called <code>bin</code>. The full
+                  intended location is <code>%USERPROFILE%\develop\flutter\bin</code>.</li>
+                <li>Follow the next <strong>PATH walkthrough</strong>, then reopen VS Code. If VS Code asks for the
+                  Flutter SDK location, choose <strong>Locate SDK</strong> (or use <strong>Flutter: Change SDK</strong>)
+                  and select the main <code>flutter</code> folder, <em>not</em> <code>bin</code>.</li>
+              </ol>
+              <div class="checkpoint"><strong>Check</strong><span>With either route, you must end up with
+                  <code>flutter\bin\flutter.bat</code>. Do not install both copies unless you deliberately manage
+                  multiple SDK versions.</span></div>
+            </div>
+          </div>
+          <div class="numbered" id="method-path"><span>04</span>
+            <div>
+              <h3>Understand PATH—and add it yourself if needed</h3>
+              <p><strong>PATH</strong> is a list of folders your terminal searches when you type commands. Including
+                Flutter's <code>bin</code> folder makes the <code>flutter</code> and bundled <code>dart</code> commands
+                available in a new terminal.</p>
+              <figure class="diagram"><img src="images/path-explained.svg"
+                  alt="The terminal searches PATH entries and finds the Flutter SDK bin folder">
+                <figcaption>Original diagram: terminal → PATH folder list → Flutter executable.</figcaption>
+              </figure>
+              <div class="windows-walkthrough">
+                <h4>Windows 11 — add Flutter to your user PATH</h4>
+                <ol class="instruction-list">
+                  <li>Press the <kbd>Windows</kbd> key and search for <strong>environment variables</strong>. Open
+                    <strong>Edit environment variables for your account</strong>. Or go to <strong>System → About →
+                      Advanced system settings → Environment Variables</strong>.
+                  </li>
+                  <li>Under <strong>User variables</strong> (not System variables), select <strong>Path</strong> and
+                    click <strong>Edit</strong>.</li>
+                  <li>Click <strong>New</strong>. Enter <code>%USERPROFILE%\develop\flutter\bin</code> <em>only if that
+                      is where your SDK is installed</em>. For another location, use its actual <code>flutter\bin</code>
+                    path.</li>
+                  <li>Select the entry you added and move it toward the top. Click <strong>OK</strong> on all open
+                    dialogs to save.</li>
+                  <li><strong>Close all terminals and restart VS Code.</strong> Open a fresh terminal and run
+                    <code>flutter --version</code> and <code>dart --version</code>.
+                  </li>
+                </ol>
+                <figure class="diagram"><img src="images/windows-path-guide.svg"
+                    alt="Three original illustrative Windows screens: search for environment variables, edit the user Path, then add the Flutter SDK bin folder">
+                  <figcaption>Original annotated Windows 11-style illustration (not a captured OS screenshot). Labels
+                    and menu positions may vary by system version.</figcaption>
+                </figure>
+                <div class="command">
+                  <div class="command-bar"><span>New PowerShell / VS Code terminal · verification</span><button
+                      type="button" class="copy-btn" data-copy="flutter --version&#10;dart --version">Copy</button>
+                  </div>
+                  <pre><code>flutter --version
+dart --version</code></pre>
+                </div>
+                <div class="notice warning"><strong>Important:</strong> Never delete existing Path entries. Add the
+                  <em>Flutter SDK's bin</em> folder, not the projects folder, the ZIP file or just the parent
+                  <code>develop</code> directory. If using VS Code's automatic <strong>Add SDK to PATH</strong>, don't
+                  add the same path twice.
+                </div>
+              </div>
+              <p class="expected"><strong>If not recognized:</strong> first restart VS Code and every terminal. Then
+                revisit the SDK PATH step in the official troubleshooting guide; do not copy a stranger's SDK location
+                verbatim.</p>
+            </div>
+          </div>
+          <div class="teacher-note compact"><img src="images/dash-teacher.webp" alt="Dash the Flutter teacher">
+            <div><strong>Dash tip</strong>
+              <p>The <strong>Flutter SDK already contains Dart</strong>. Seeing the Flutter and Dart extensions in VS
+                Code is not the same as having the actual Flutter SDK installed—that is why we verify next.</p>
+            </div>
+          </div>
+          <div class="notice info"><strong>Stable channel:</strong> Use the default stable Flutter release for learning.
+            Avoid switching to beta or development channels just to try a new feature.</div>
+        </section>
+
+        <section class="lesson" data-panel="4" aria-labelledby="s05-title" hidden>
+          <div class="section-top"><span class="overline">STEP 05 · WHILE YOUR SDK DOWNLOADS</span><span
+              class="duration">10 MIN</span></div>
+          <h1 id="s05-title">From Visual Play to Real Flutter Code</h1>
+          <p class="lead">Downloads can take a while. Instead of staring at a progress bar, explore a small
+            app visually. Then take a look behind the screen:
+            edit real Flutter source code, press Run, and
+            discover how your changes affect an application.
+            <strong>No previous Flutter knowledge is required.</strong>
+          </p>
+          <div class="teacher-note compact"><img src="images/dash-teacher.webp" alt="Dash the Flutter teacher">
+            <div><strong>Dash says</strong>
+              <p>Try changing the colors, greeting and icon, then tap the little app. These are the kinds of
+                interactions you'll create with <strong>real Flutter widgets</strong> later!</p>
+            </div>
+          </div>
+          <div class="notice info play-disclaimer"><strong>Visual playground:</strong>
+            <strong>Explore first. Code next!</strong>
+            <p>
+              Play with the mini-app below, then experiment with
+              real Flutter code in DartPad. In Step 07, you'll
+              create and run your first app in VS Code.
+            </p>
+          </div>
+          <div class="playground-toolbar"><span><span class="play-pulse" aria-hidden="true"></span> Your Flutter
+              download can continue in VS Code while you play here.</span><button type="button"
+              class="btn secondary small" id="returnInstallTop">← Back to installation</button></div>
+          <div class="playground-layout">
+            <div class="playground-controls">
+              <div class="play-control-heading"><span>01 · PERSONALIZE</span>
+                <h2>Make it your own</h2>
+                <p>Every change updates the little app on the right.</p>
+              </div>
+              <label class="play-field" for="playGreetingInput">Welcome message <small>Type something
+                  friendly!</small><input id="playGreetingInput" type="text" maxlength="40"
+                  value="Hello, Flutter explorer!" placeholder="Hello, Flutter explorer!" autocomplete="off"></label>
+              <fieldset class="play-fieldset">
+                <legend>Choose your app color</legend>
+                <div class="play-swatches" role="group" aria-label="App color">
+                  <button class="play-swatch" type="button" data-play-color="blue" style="--swatch:#087bbb"
+                    aria-label="Ocean blue" title="Ocean blue" aria-pressed="true"><span
+                      aria-hidden="true">✓</span></button>
+                  <button class="play-swatch" type="button" data-play-color="purple" style="--swatch:#7059d6"
+                    aria-label="Creative purple" title="Creative purple" aria-pressed="false"><span
+                      aria-hidden="true">✓</span></button>
+                  <button class="play-swatch" type="button" data-play-color="coral" style="--swatch:#bd4960"
+                    aria-label="Warm coral" title="Warm coral" aria-pressed="false"><span
+                      aria-hidden="true">✓</span></button>
+                  <button class="play-swatch" type="button" data-play-color="green" style="--swatch:#158c7a"
+                    aria-label="Fresh green" title="Fresh green" aria-pressed="false"><span
+                      aria-hidden="true">✓</span></button>
+                </div><small class="play-hint">Tap any color circle to repaint your mini app.</small>
+              </fieldset>
+              <fieldset class="play-fieldset">
+                <legend>Choose a fun picture</legend>
+                <div class="play-icon-picker" role="group" aria-label="Main picture">
+                  <button type="button" data-play-icon="🚀" aria-label="Rocket" aria-pressed="true">🚀</button>
+                  <button type="button" data-play-icon="🎨" aria-label="Artist palette" aria-pressed="false">🎨</button>
+                  <button type="button" data-play-icon="📚" aria-label="Books" aria-pressed="false">📚</button>
+                  <button type="button" data-play-icon="🌿" aria-label="Plant" aria-pressed="false">🌿</button>
+                </div>
+              </fieldset>
+              <label class="play-theme-switch"><input id="playDarkToggle" type="checkbox"><span>Try dark
+                  mode</span><span class="play-switch-track" aria-hidden="true"></span></label>
+              <div class="play-quick-actions"><button id="playSurprise" type="button" class="btn primary">✦ Surprise
+                  me!</button><button id="playReset" type="button" class="btn ghost">↺ Start over</button></div>
+            </div>
+            <div class="playground-preview">
+              <div class="play-preview-caption"><span>LIVE VISUAL PREVIEW</span><span class="play-caption-pill">No SDK
+                  needed</span></div>
+              <div class="play-phone-wrap">
+                <div class="play-phone" id="playPhone" data-preview-theme="light">
+                  <div class="play-phone-status"><span>9:41</span><span aria-hidden="true">●◕ ▰</span></div>
+                  <div class="play-appbar"><span class="play-appbar-mark" aria-hidden="true">✦</span><strong>My first
+                      mini app</strong><span aria-hidden="true">⋮</span></div>
+                  <div class="play-phone-content">
+                    <div class="play-art-circle"><span id="playAvatar" aria-hidden="true">🚀</span></div><span
+                      class="play-eyebrow">MY FIRST DESIGN</span>
+                    <h3 id="playGreeting">Hello, Flutter explorer!</h3>
+                    <p>Every great app starts with an idea. Make this screen yours!</p>
+                    <div class="play-app-actions"><button id="playHeart" type="button" class="play-heart"
+                        aria-pressed="false" aria-label="Like this mini app"><span id="playHeartIcon"
+                          aria-hidden="true">♡</span> Like <span id="playHeartCount">0</span></button><button
+                        id="playTap" type="button" class="play-tap">Tap me ✨</button></div>
+                    <p id="playTapMessage" class="play-tap-message" role="status" aria-live="polite">Give the buttons a
+                      try!</p>
+                  </div>
+                  <div class="play-phone-tabs" aria-hidden="true">
+                    <span>⌂<small>Home</small></span><span>✦<small>Explore</small></span><span>☺<small>Me</small></span>
+                  </div>
+                </div>
+              </div>
+              <div class="play-live-status" id="playLiveStatus" role="status" aria-live="polite">Try a color to start
+                your design!</div>
+            </div>
+          </div>
+          <div class="activity play-challenges">
+            <div class="activity-header"><span class="activity-icon">✦</span>
+              <div>
+                <h3>Three tiny challenges</h3>
+                <p>Try these in any order. You don't need to write a single line of code.</p>
+              </div>
+            </div>
+            <div class="play-challenge-list">
+              <div><span>01</span> Change the app to <strong>purple</strong>.</div>
+              <div><span>02</span> Write your own welcome message and choose an icon.</div>
+              <div><span>03</span> Tap <strong>Like</strong> and <strong>Tap me</strong>. What changes?</div>
+            </div>
+            <div class="notice subtle"><strong>Behind the scenes:</strong> In a real Flutter app, developers use widgets
+              to build screens and code to respond to taps. We'll learn these ideas step by step after your environment
+              is ready.</div>
+          </div>
+          <section class="real-code-bridge" aria-labelledby="focusboard-title">
+
+            <span class="overline">
+              02 · BEHIND THE SCREEN
+            </span>
+
+            <h2 id="focusboard-title">
+              Now Experiment with Real Flutter
+            </h2>
+
+            <p>
+              You have explored an app using visual controls.
+              Now discover how developers make changes
+              through code.
+            </p>
+
+            <div class="notice info">
+              <strong>Experiment, don't memorize.</strong>
+              You are not expected to understand every line.
+              Start with simple values, make one change,
+              and press Run to observe the result.
+            </div>
+
+            <div class="dartpad-workspace">
+
+              <div class="dartpad-header">
+                <div>
+                  <strong>FocusBoard · Flutter Code Lab</strong>
+                  <p>Edit the source code and run the real app.</p>
+                </div>
+
+                <button type="button" id="loadFocusBoard" class="btn primary">
+                  ▶ Load Flutter Editor
+                </button>
+              </div>
+
+              <iframe id="focusBoardFrame" class="dartpad-iframe" title="Real Flutter editor and application preview"
+                data-src="https://dartpad.dev/?id=079ce87b6baf678fa4f572f53c290364&amp;embed=true&amp;run=false"
+                loading="lazy" hidden>
+              </iframe>
+
+              <p class="dartpad-fallback">
+                Having trouble loading the editor?
+                <a href="https://dartpad.dev/?id=079ce87b6baf678fa4f572f53c290364" target="_blank"
+                  rel="noopener noreferrer">
+                  Open the example in DartPad
+                </a>
+              </p>
+
+            </div>
+
+
+            <div class="real-code-challenges">
+
+              <h2>Try It Yourself · Real Flutter Code Experiments</h2>
+
+              <p>
+                You've explored an app visually. Now discover how developers
+                create and change real Flutter applications through code.
+                You don't need to understand every line yet.
+              </p>
+
+              <div class="notice info">
+                <strong>How to experiment</strong>
+                <p>
+                  Find the indicated code in DartPad, make one change at a
+                  time, press <strong>Run</strong>, and compare the result
+                  with your prediction.
+                </p>
+              </div>
+
+              <!-- LEVEL 00 -->
+
+              <div class="task-card">
+                <span class="task-label">LEVEL 00 · GET STARTED</span>
+                <h3>Run Your First Real Flutter Example</h3>
+
+                <p>
+                  Before changing anything, explore the FocusBoard application
+                  and understand what it currently does.
+                </p>
+
+                <ol class="instruction-list">
+                  <li>Open the FocusBoard code in the embedded DartPad.</li>
+                  <li>Press <strong>Run</strong>.</li>
+                  <li>Explore the dashboard, focus card, and task list.</li>
+                  <li>
+                    Press <strong>Complete next task</strong> repeatedly
+                    and observe the progress indicator.
+                  </li>
+                  <li>
+                    Return to the code editor and find the section labeled
+                    <code>EXPERIMENT ZONE</code>.
+                  </li>
+                </ol>
+
+                <p class="expected">
+                  <strong>Checkpoint:</strong>
+                  The app runs, displays three tasks, and updates its
+                  progress when you complete them.
+                </p>
+              </div>
+
+              <!-- LEVEL 01 -->
+
+              <div class="task-card">
+                <span class="task-label">LEVEL 01 · EASY</span>
+                <h3>Personalize the Content</h3>
+
+                <p>
+                  Start with the simplest possible change: modifying
+                  the information displayed by the application.
+                </p>
+
+                <ol class="instruction-list">
+                  <li>
+                    Find the <code>EXPERIMENT ZONE</code> near
+                    the beginning of the source code.
+                  </li>
+                  <li>Locate these two declarations:</li>
+                </ol>
+
+                <div class="command">
+                  <div class="command-bar">
+                    <span>Dart · Content variables</span>
+                    <button type="button" class="copy-btn"
+                      data-copy="const studentName = 'Alex';&#10;const focusMessage = 'Make your next 45 minutes count.';">
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-dart"><span class="tok-key">const</span> studentName = <span class="tok-str">'Alex'</span>;
+<span class="tok-key">const</span> focusMessage = <span class="tok-str">'Make your next 45 minutes count.'</span>;</code></pre>
+                </div>
+
+                <ol class="instruction-list" start="3">
+                  <li>
+                    Replace <code>Alex</code> with your own name.
+                  </li>
+                  <li>
+                    Write your own focus message, such as
+                    <em>Build something useful today.</em>
+                  </li>
+                  <li>
+                    Keep the quotation marks and semicolons.
+                  </li>
+                  <li>Press <strong>Run</strong>.</li>
+                </ol>
+
+                <p class="expected">
+                  <strong>Checkpoint:</strong>
+                  Your name appears in the welcome message,
+                  and the focus card displays your new text.
+                </p>
+
+                <div class="notice subtle">
+                  <strong>Think about it:</strong>
+                  Why could you change the content without modifying
+                  the widgets that display it?
+                </div>
+              </div>
+
+              <!-- LEVEL 02 -->
+
+              <div class="task-card">
+                <span class="task-label">LEVEL 02 · EASY TO INTERMEDIATE</span>
+                <h3>Change the App's Visual Identity</h3>
+
+                <p>
+                  Applications often use shared colors and icons to create
+                  a consistent visual identity. Experiment with both.
+                </p>
+
+                <ol class="instruction-list">
+                  <li>
+                    Find <code>brandColor</code> and
+                    <code>brandIcon</code> in the Experiment Zone.
+                  </li>
+                  <li>
+                    Replace their current values with:
+                  </li>
+                </ol>
+
+                <div class="command">
+                  <div class="command-bar">
+                    <span>Dart · Appearance experiment</span>
+                    <button type="button" class="copy-btn"
+                      data-copy="const brandColor = Color(0xFF0F766E);&#10;const brandIcon = Icons.school_outlined;">
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-dart"><span class="tok-key">const</span> brandColor = Color(0xFF0F766E);
+<span class="tok-key">const</span> brandIcon = Icons.school_outlined;</code></pre>
+                </div>
+
+                <ol class="instruction-list" start="3">
+                  <li>Press <strong>Run</strong>.</li>
+                  <li>Observe the header icon, focus card, and task icons.</li>
+                  <li>
+                    Try another brand color:
+                  </li>
+                </ol>
+
+                <div class="command">
+                  <div class="command-bar">
+                    <span>Dart · Alternative color</span>
+                    <button type="button" class="copy-btn" data-copy="const brandColor = Color(0xFF7C3AED);">
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-dart"><span class="tok-key">const</span> brandColor = Color(0xFF7C3AED);</code></pre>
+                </div>
+
+                <ol class="instruction-list" start="6">
+                  <li>
+                    Press <strong>Run</strong> again.
+                  </li>
+                  <li>
+                    Try changing the icon to
+                    <code>Icons.code_outlined</code>.
+                  </li>
+                </ol>
+
+                <p class="expected">
+                  <strong>Checkpoint:</strong>
+                  Several visual elements update when the shared
+                  brand color changes.
+                </p>
+
+                <div class="notice subtle">
+                  <strong>Think about it:</strong>
+                  Why is defining a shared color better than
+                  repeating the same color value throughout the app?
+                </div>
+              </div>
+
+              <!-- LEVEL 03 -->
+
+              <div class="task-card">
+                <span class="task-label">LEVEL 03 · INTERMEDIATE</span>
+                <h3>Work with Real Application Data</h3>
+
+                <p>
+                  FocusBoard builds its task cards from a list of data.
+                  You can change the number of cards without copying
+                  the interface code.
+                </p>
+
+                <ol class="instruction-list">
+                  <li>
+                    Find the <code>tasks</code> list near the top.
+                  </li>
+                  <li>
+                    Look at the existing task entries.
+                    Each contains a title and estimated duration.
+                  </li>
+                  <li>
+                    Add a fourth entry before the closing
+                    <code>];</code>:
+                  </li>
+                </ol>
+
+                <div class="command">
+                  <div class="command-bar">
+                    <span>Dart · Add another task</span>
+                    <button type="button" class="copy-btn" data-copy="StudyTask('Review my Flutter notes', 15),">
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-dart">StudyTask(<span class="tok-str">'Review my Flutter notes'</span>, 15),</code></pre>
+                </div>
+
+                <ol class="instruction-list" start="4">
+                  <li>
+                    Press <strong>Run</strong>.
+                  </li>
+                  <li>
+                    Count the tasks displayed in the application.
+                  </li>
+                  <li>
+                    Complete tasks and watch the progress indicator.
+                  </li>
+                  <li>
+                    Modify the duration of one task and run again.
+                  </li>
+                  <li>
+                    Add a fifth task using your own title and duration.
+                  </li>
+                </ol>
+
+                <p class="expected">
+                  <strong>Checkpoint:</strong>
+                  The task list and progress counter automatically
+                  reflect the new number of tasks.
+                </p>
+
+                <div class="notice subtle">
+                  <strong>Think about it:</strong>
+                  How did Flutter create additional task cards
+                  without you writing another card widget?
+                  What does this reveal about data-driven interfaces?
+                </div>
+              </div>
+
+              <!-- LEVEL 04 -->
+
+              <div class="task-card">
+                <span class="task-label">LEVEL 04 · CHALLENGING</span>
+                <h3>Modify Application Behavior</h3>
+
+                <p>
+                  So far, you have changed text, appearance, and data.
+                  Now modify how the application responds to a user action.
+                </p>
+
+                <p>
+                  <strong>The problem:</strong>
+                  When every task is completed, the button becomes
+                  disabled. A productivity app should allow the user
+                  to restart the plan.
+                </p>
+
+                <ol class="instruction-list">
+                  <li>
+                    Run FocusBoard and complete every task.
+                  </li>
+                  <li>
+                    Notice that the
+                    <strong>Complete next task</strong> button
+                    becomes disabled.
+                  </li>
+                  <li>
+                    Find <code>FilledButton.icon</code>
+                    near the bottom of the source code.
+                  </li>
+                  <li>
+                    Examine its <code>onPressed</code> property.
+                  </li>
+                </ol>
+
+                <div class="command">
+                  <div class="command-bar">
+                    <span>Dart · Existing button behavior</span>
+                    <button type="button" class="copy-btn"
+                      data-copy="onPressed: completed &lt; tasks.length&#10;    ? () {&#10;        setState(() {&#10;          completed++;&#10;        });&#10;      }&#10;    : null,">
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-dart">onPressed: completed &lt; tasks.length
+    ? () {
+        setState(() {
+          completed++;
+        });
+      }
+    : <span class="tok-key">null</span>,</code></pre>
+                </div>
+
+                <h4>Your challenge</h4>
+
+                <ol class="instruction-list">
+                  <li>
+                    Replace the current conditional <code>onPressed</code>
+                    logic with a callback that always remains available.
+                  </li>
+                  <li>
+                    Inside <code>setState()</code>, introduce an
+                    <code>if / else</code> decision.
+                  </li>
+                  <li>
+                    If unfinished tasks remain, increase
+                    <code>completed</code> by one.
+                  </li>
+                  <li>
+                    Otherwise, reset <code>completed</code>
+                    to zero.
+                  </li>
+                  <li>
+                    Change the button label to
+                    <strong>Restart my plan</strong>
+                    when all tasks have been completed.
+                  </li>
+                  <li>
+                    Press <strong>Run</strong> and test the complete cycle.
+                  </li>
+                </ol>
+
+
+                <details>
+                  <summary>Need a hint? Show the solution</summary>
+
+                  <p>
+                    Replace the existing <code>FilledButton.icon</code>
+                    with the following code:
+                  </p>
+
+                  <div class="command">
+                    <div class="command-bar">
+                      <span>Dart · Level 04 Solution</span>
+                      <button type="button" class="copy-btn"
+                        data-copy="FilledButton.icon(&#10;  onPressed: () {&#10;    setState(() {&#10;      if (completed &lt; tasks.length) {&#10;        completed++;&#10;      } else {&#10;        completed = 0;&#10;      }&#10;    });&#10;  },&#10;  icon: const Icon(Icons.check),&#10;  label: Text(&#10;    completed == tasks.length&#10;        ? 'Restart my plan'&#10;        : 'Complete next task',&#10;  ),&#10;),">
+                        Copy
+                      </button>
+                    </div>
+
+                    <pre><code class="language-dart">FilledButton.icon(
+  onPressed: () {
+    setState(() {
+      <span class="tok-key">if</span> (completed &lt; tasks.length) {
+        completed++;
+      } <span class="tok-key">else</span> {
+        completed = 0;
+      }
+    });
+  },
+  icon: <span class="tok-key">const</span> Icon(Icons.check),
+  label: Text(
+    completed == tasks.length
+        ? <span class="tok-str">'Restart my plan'</span>
+        : <span class="tok-str">'Complete next task'</span>,
+  ),
+),</code></pre>
+                  </div>
+
+                  <p>
+                    <strong>Why it works:</strong>
+                    <code>setState()</code> refreshes the interface.
+                    The button completes tasks until the list is finished,
+                    then resets <code>completed</code> to zero.
+                  </p>
+
+                  <p>
+                    <strong>Test:</strong>
+                    Complete all tasks, click
+                    <strong>Restart my plan</strong>, and verify
+                    that the progress bar resets.
+                  </p>
+                </details>
+
+                <p class="expected">
+                  <strong>Checkpoint:</strong>
+                  After completing the final task, the button shows
+                  <strong>Restart my plan</strong>.
+                  Clicking it resets progress to zero, and the tasks
+                  become unfinished again.
+                </p>
+
+                <div class="notice subtle">
+                  <strong>Think about it:</strong>
+                  What changed in the application state?
+                  Why did the progress bar and task icons update
+                  without recreating the app manually?
+                </div>
+              </div>
+
+              <!-- LEVEL 05 -->
+
+              <div class="task-card">
+                <span class="task-label">LEVEL 05 · ADVANCED · AFTER LAB</span>
+                <h3>Add a Calculated Dashboard Metric</h3>
+
+                <p>
+                  Real dashboards do more than display stored values.
+                  They calculate useful information from application data.
+                </p>
+
+                <p>
+                  <strong>Your mission:</strong>
+                  Display the total study time remaining
+                  for all unfinished tasks.
+                </p>
+
+                <ol class="instruction-list">
+                  <li>
+                    Examine the <code>tasks</code> list and the
+                    <code>minutes</code> property of each task.
+                  </li>
+                  <li>
+                    Examine <code>completed</code>.
+                    This tells you how many tasks are finished.
+                  </li>
+                  <li>
+                    Find the <code>build()</code> method
+                    inside <code>_FocusBoardScreenState</code>.
+                  </li>
+                  <li>
+                    Just before <code>return Scaffold(...)</code>,
+                    introduce a variable to store the remaining minutes.
+                    Start with this placeholder:
+                  </li>
+                </ol>
+
+                <div class="command">
+                  <div class="command-bar">
+                    <span>Dart · Calculation starter</span>
+                    <button type="button" class="copy-btn"
+                      data-copy="// TODO: Calculate the duration of unfinished tasks.&#10;final remainingMinutes = 0;">
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-dart">// TODO: Calculate the duration of unfinished tasks.
+<span class="tok-key">final</span> remainingMinutes = 0;</code></pre>
+                </div>
+
+                <ol class="instruction-list" start="5">
+                  <li>
+                    Replace the temporary zero with a calculation
+                    based on the unfinished tasks.
+                  </li>
+                  <li>
+                    Inside the focus card's <code>Column</code>,
+                    add a <code>Text</code> widget below the existing
+                    progress information.
+                  </li>
+                  <li>
+                    Use this display code:
+                  </li>
+                </ol>
+
+                <div class="command">
+                  <div class="command-bar">
+                    <span>Dart · Display remaining time</span>
+                    <button type="button" class="copy-btn"
+                      data-copy="Text(&#10;  '$remainingMinutes minutes remaining',&#10;  style: const TextStyle(color: Colors.white),&#10;),">
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-dart">Text(
+  <span class="tok-str">'$remainingMinutes minutes remaining'</span>,
+  style: <span class="tok-key">const</span> TextStyle(color: Colors.white),
+),</code></pre>
+                </div>
+
+                <ol class="instruction-list" start="8">
+                  <li>
+                    Press <strong>Run</strong>.
+                  </li>
+                  <li>
+                    Verify that the initial value equals the sum of
+                    all task durations.
+                  </li>
+                  <li>
+                    Complete a task and check whether the remaining
+                    time decreases correctly.
+                  </li>
+                  <li>
+                    Add another task and confirm that the calculation
+                    still works without modifying its formula.
+                  </li>
+                </ol>
+
+
+                <details>
+                  <summary>Need a hint?</summary>
+                  <p>
+                    The completed tasks come first in the list.
+                    Use <code>skip(completed)</code> to get the
+                    unfinished tasks, then add their durations
+                    using <code>fold()</code>.
+                  </p>
+                </details>
+
+                <details>
+                  <summary>Show solution · Level 05</summary>
+
+                  <p>
+                    <strong>Step 1:</strong> Inside the
+                    <code>build()</code> method, before
+                    <code>return Scaffold(...)</code>, add:
+                  </p>
+
+                  <div class="command">
+                    <div class="command-bar">
+                      <span>Dart · Calculate remaining time</span>
+                      <button type="button" class="copy-btn"
+                        data-copy="final remainingMinutes = tasks.skip(completed).fold&lt;int&gt;(0, (sum, task) =&gt; sum + task.minutes);">
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-dart"><span class="tok-key">final</span> remainingMinutes = tasks
+    .skip(completed)
+    .fold&lt;int&gt;(
+      0,
+      (sum, task) =&gt; sum + task.minutes,
+    );</code></pre>
+                  </div>
+
+                  <p>
+                    <strong>Step 2:</strong> Inside the focus card's
+                    <code>Column</code>, below the progress
+                    information, add:
+                  </p>
+
+                  <div class="command">
+                    <div class="command-bar">
+                      <span>Dart · Display remaining minutes</span>
+                      <button type="button" class="copy-btn"
+                        data-copy="Text(&#10;  '$remainingMinutes minutes remaining',&#10;  style: const TextStyle(color: Colors.white),&#10;),">
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-dart">Text(
+  <span class="tok-str">'$remainingMinutes minutes remaining'</span>,
+  style: <span class="tok-key">const</span> TextStyle(color: Colors.white),
+),</code></pre>
+                  </div>
+
+                  <p>
+                    <strong>Test:</strong> The number decreases as
+                    tasks are completed and reaches zero when
+                    all tasks are finished.
+                  </p>
+                </details>
+
+
+                <p class="expected">
+                  <strong>Checkpoint:</strong>
+                  The remaining minutes start at the total task duration,
+                  decrease after each completion, and reach zero when
+                  all tasks are finished.
+                </p>
+
+                <div class="notice subtle">
+                  <strong>Think about it:</strong>
+                  Why is a calculated value more reliable than
+                  manually updating a number every time
+                  the user completes a task?
+                </div>
+              </div>
+
+
+              <section class="real-code-bridge">
+                <span class="overline">
+                  FINAL · REFERENCE IMPLEMENTATION
+                </span>
+
+                <h2>Explore the Completed FocusBoard</h2>
+
+                <p>
+                  Finished experimenting? Compare your work with
+                  the complete application. Explore its behavior
+                  and inspect how the final features were implemented.
+                </p>
+
+                <details id="completedFocusBoard">
+                  <summary>
+                    Reveal the Completed Flutter Application
+                  </summary>
+
+                  <div class="notice info">
+                    <strong>Compare, don't just copy.</strong>
+                    Check how the restart button and remaining-time
+                    calculation were implemented.
+                  </div>
+
+                  <div class="dartpad-workspace">
+                    <iframe id="completedFocusBoardFrame" class="dartpad-iframe"
+                      title="Completed FocusBoard Flutter application"
+                      data-src="https://dartpad.dev/?id=2f0cb0bdc883f0ab0459c3bb39639757&amp;embed=true&amp;run=true"
+                      loading="lazy">
+                    </iframe>
+
+                    <p>
+                      <a href="https://dartpad.dev/?id=2f0cb0bdc883f0ab0459c3bb39639757" target="_blank"
+                        rel="noopener noreferrer">
+                        Open completed source code in DartPad
+                      </a>
+                    </p>
+                  </div>
+                </details>
+              </section>
+
+              <!-- FINAL REFLECTION -->
+
+              <div class="notice success">
+                <strong>You've experimented with real Flutter!</strong>
+                <p>
+                  You've changed application content, styling, data,
+                  and behavior by editing source code.
+                  You don't need to memorize the syntax yet.
+                  In upcoming lessons, we'll learn how these
+                  programming concepts work step by step.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+          <div class="notice info"><strong>Done playing?</strong> If the SDK finished downloading, choose <button
+              class="inline-action" id="returnInstallInline" type="button">Back to installation ↩</button> to resume
+            setup exactly where you stopped. Otherwise, keep exploring. Continue to <strong>Step 06: Flutter
+              Doctor</strong> when installation is ready.</div>
+        </section>
+
+        <section class="lesson" data-panel="5" aria-labelledby="s06-title" hidden>
+          <div class="section-top"><span class="overline">STEP 06 · ENVIRONMENT DIAGNOSTICS</span><span
+              class="duration">15 MIN</span></div>
+          <h1 id="s06-title">Ask Flutter Doctor</h1>
+          <p class="lead">Open <strong>Terminal → New Terminal</strong> in VS Code. These commands show whether the SDK
+            is installed and whether Chrome/Edge is available as a target.</p>
+          <div class="command-grid">
+            <div class="command">
+              <div class="command-bar"><span>01 · Dart version</span><button class="copy-btn"
+                  data-copy="dart --version">Copy</button></div>
+              <pre><code>dart --version</code></pre>
+              <p>Shows the Dart SDK version bundled with Flutter. <strong>Use two dashes</strong>:
+                <code>--version</code>.
+              </p>
+            </div>
+            <div class="command">
+              <div class="command-bar"><span>02 · Flutter version</span><button class="copy-btn"
+                  data-copy="flutter --version">Copy</button></div>
+              <pre><code>flutter --version</code></pre>
+              <p>Shows Flutter version and typically its channel. Versions differ across machines.</p>
+            </div>
+            <div class="command">
+              <div class="command-bar"><span>03 · Diagnose setup</span><button class="copy-btn"
+                  data-copy="flutter doctor">Copy</button></div>
+              <pre><code>flutter doctor</code></pre>
+              <p>Checks Flutter and the toolchains for different target platforms.</p>
+            </div>
+            <div class="command">
+              <div class="command-bar"><span>04 · Find run targets</span><button class="copy-btn"
+                  data-copy="flutter devices">Copy</button></div>
+              <pre><code>flutter devices</code></pre>
+              <p>Shows Chrome/Edge if discovered as web devices (and physical devices if connected).</p>
+            </div>
+          </div>
+          <figure class="diagram"><img src="images/doctor-sample.svg"
+              alt="Illustrative terminal showing Flutter and Chrome checks passing while Android toolchain and Android Studio warnings remain">
+            <figcaption>SIMULATED EXAMPLE—never submit this diagram as genuine evidence. Real outputs vary.</figcaption>
+          </figure>
+          <div class="two-col">
+            <div class="notice success"><strong>Web setup can be ready when:</strong> Flutter is recognized, Chrome/Edge
+              appears in <code>flutter devices</code>, and you can actually run the app in that browser.</div>
+            <div class="notice warning"><strong>Android warning?</strong> Android Studio or Android toolchain warnings
+              do <em>not</em> automatically block web development. Fix these later if you're taking the Android
+              extension.</div>
+          </div>
+          <div class="activity">
+            <div class="activity-header"><span class="activity-icon">?</span>
+              <div>
+                <h3>Diagnose this situation</h3>
+                <p>Your Flutter check shows a successful Flutter installation and Chrome, but a warning that Android
+                  Studio is missing. What should you do to finish today's <strong>web-first</strong> lab?</p>
+              </div>
+            </div>
+            <div class="quiz" data-quiz="doctor">
+              <div class="answer-stack"><button data-answer="incorrect">Stop. Web apps are impossible without Android
+                  Studio.</button><button data-answer="correct">Continue with Chrome; Android tooling is for the
+                  optional phone path.</button><button data-answer="incorrect">Delete Flutter and reinstall every
+                  component.</button></div>
+              <p class="feedback" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="checkpoint"><strong>Evidence 02–04</strong><span>Take genuine, readable screenshots of
+              <code>dart --version</code>, all lines of <code>flutter doctor</code>, and <code>flutter devices</code>.
+              Show the commands as well as the output.</span></div>
+        </section>
+
+        <section class="lesson" data-panel="6" aria-labelledby="s07-title" hidden>
+          <div class="section-top"><span class="overline">STEP 07 · YOUR FIRST APP</span><span class="duration">25
+              MIN</span></div>
+          <h1 id="s07-title">Create it. Run it. Celebrate.</h1>
+          <p class="lead">Now we'll use VS Code to generate a <strong>real Flutter starter app</strong> and run it in
+            Chrome or Edge. This is a setup test: do not change its Dart code today.</p>
+          <div class="numbered"><span>01</span>
+            <div>
+              <h3>Create your Flutter project</h3>
+              <ol class="instruction-list">
+                <li>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.</li>
+                <li>Choose <strong>Flutter: New Project</strong> → <strong>Application</strong>.</li>
+                <li>Select a parent folder for your projects (for example <code>Documents\FlutterProjects</code>). VS
+                  Code creates the new project folder for you.</li>
+                <li>Enter <code>setup_check_app</code> as your project name. Use lowercase letters and underscores.</li>
+                <li>Wait until the project opens and initialization completes. Find <code>pubspec.yaml</code> and
+                  <code>lib/main.dart</code> in the Explorer—no need to edit them yet.
+                </li>
+              </ol>
+              <div class="book-figures">
+                <figure><img src="images/book-command-palette.webp"
+                    alt="Textbook screenshot of VS Code Command Palette showing Flutter New Project" loading="lazy">
+                  <figcaption>Book p. 6 · Fig. 1.1 — Choose Flutter: New Project</figcaption>
+                </figure>
+                <figure><img src="images/book-project-template.webp"
+                    alt="Textbook screenshot of Flutter project templates, with Application at the top" loading="lazy">
+                  <figcaption>Book p. 6 · Fig. 1.2 — Select Application</figcaption>
+                </figure>
+              </div>
+              <p class="visual-footnote">These are examples from the supplied textbook; VS Code labels and templates may
+                differ by version.</p>
+            </div>
+          </div>
+          <div class="numbered"><span>02</span>
+            <div>
+              <h3>Select the web run target</h3>
+              <ol class="instruction-list">
+                <li>Look at VS Code's <strong>device selector</strong> (usually on the status bar). Choose
+                  <strong>Chrome</strong> or <strong>Edge</strong>.
+                </li>
+                <li>Alternatively open the Command Palette and select <strong>Flutter: Select Device</strong>.</li>
+                <li>If neither browser appears, return to <code>flutter devices</code> and verify browser installation.
+                </li>
+              </ol>
+              <figure class="book-figure compact"><img src="images/book-device-picker.webp"
+                  alt="Textbook screenshot showing Chrome (web) selected in VS Code's device picker" loading="lazy">
+                <figcaption>Book p. 8 · Fig. 1.4 — Choose Chrome (web); shown on macOS in the book, the web target works
+                  on Windows too.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="numbered"><span>03</span>
+            <div>
+              <h3>Start the app in a browser</h3>
+              <ol class="instruction-list">
+                <li>Choose <strong>Run → Start Debugging</strong> or press <kbd>F5</kbd> in VS Code.</li>
+                <li>Allow the first build and browser launch to finish. First launches may require additional downloads
+                  and take longer.</li>
+                <li>Confirm the starter app appears in Chrome/Edge.</li>
+                <li>Press its <strong>+</strong> button and check that the displayed counter increases (when using the
+                  standard counter template).</li>
+              </ol>
+              <figure class="book-figure"><img src="images/book-first-run.webp"
+                  alt="Textbook screenshot of a Chrome browser displaying the default Flutter counter application with a plus button"
+                  loading="lazy">
+                <figcaption>Book p. 9 · Fig. 1.5 — This is an <strong>example</strong> of the starter app running in a
+                  browser. Your generated app may look different with a newer Flutter version.</figcaption>
+              </figure>
+              <figure class="diagram mini-figure"><img src="images/first-app.svg"
+                  alt="Original simplified drawing of a Flutter counter app">
+                <figcaption>Original simplified drawing of the same idea. Your submission must show your own real
+                  application.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <details class="accordion">
+            <summary>Prefer command-line instructions? <span>Open CLI fallback</span></summary>
+            <div class="accordion-body">
+              <p>In a terminal opened in the <strong>parent project folder</strong> (not inside an existing Flutter
+                project), you can generate and run the same starter app:</p>
+              <div class="command">
+                <div class="command-bar"><span>Terminal · create project</span><button class="copy-btn"
+                    data-copy="flutter create setup_check_app">Copy</button></div>
+                <pre><code>flutter create setup_check_app</code></pre>
+              </div>
+              <div class="command">
+                <div class="command-bar"><span>Terminal · enter project folder</span><button class="copy-btn"
+                    data-copy="cd setup_check_app">Copy</button></div>
+                <pre><code>cd setup_check_app</code></pre>
+              </div>
+              <div class="command">
+                <div class="command-bar"><span>Terminal · run on Chrome</span><button class="copy-btn"
+                    data-copy="flutter run -d chrome">Copy</button></div>
+                <pre><code>flutter run -d chrome</code></pre>
+              </div>
+              <p>If choosing Edge on Windows instead, use <code>flutter run -d edge</code>. Run commands from the
+                project folder containing <code>pubspec.yaml</code>.</p>
+            </div>
+          </details>
+          <div class="checkpoint emphasis"><strong>Evidence 05</strong><span>Capture <code>05-flutter-web-app.png</code>
+              showing the <strong>real</strong> running Flutter app in Chrome/Edge. If possible, show VS Code beside it.
+              Do not submit the illustrative screenshot above.</span></div>
+          <div class="teacher-note compact"><img src="images/dash-teacher.webp" alt="Dash the Flutter teacher">
+            <div><strong>Dash says</strong>
+              <p>Your first Flutter app is running! In Session 04 we'll explore the generated files, explain the
+                widgets, edit the UI and use Hot Reload. For now, your environment has passed its first real test.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="lesson" data-panel="7" aria-labelledby="s08-title" hidden>
+          <div class="section-top"><span class="overline">STEP 08 · EVIDENCE & NEXT STEPS</span><span
+              class="duration">10 MIN</span></div>
+          <h1 id="s08-title">Show your setup is ready</h1>
+          <p class="lead">Submit <strong>five genuine screenshots</strong> captured on your computer. Use the checklist
+            to make sure no required evidence is missing.</p>
+          <div class="evidence-list" id="evidenceList"><label class="evidence-item"><input type="checkbox"
+                data-evidence="0"><span class="evidence-index">01</span><span><strong>Installed VS Code
+                  extensions</strong><small><code>01-vscode-extensions.png</code> · Flutter AND Dart visible as
+                  installed</small></span></label>
+            <label class="evidence-item"><input type="checkbox" data-evidence="1"><span
+                class="evidence-index">02</span><span><strong>Dart SDK
+                  version</strong><small><code>02-dart-version.png</code> · terminal command and actual
+                  <code>dart --version</code> output</small></span></label>
+            <label class="evidence-item"><input type="checkbox" data-evidence="2"><span
+                class="evidence-index">03</span><span><strong>Flutter Doctor
+                  output</strong><small><code>03-flutter-doctor.png</code> · readable full output, extra images if
+                  needed</small></span></label>
+            <label class="evidence-item"><input type="checkbox" data-evidence="3"><span
+                class="evidence-index">04</span><span><strong>Available
+                  devices</strong><small><code>04-flutter-devices.png</code> · Chrome/Edge shown by
+                  <code>flutter devices</code></small></span></label>
+            <label class="evidence-item"><input type="checkbox" data-evidence="4"><span
+                class="evidence-index">05</span><span><strong>First Flutter application
+                  running</strong><small><code>05-flutter-web-app.png</code> · actual browser window with your generated
+                  app</small></span></label>
+          </div>
+          <div class="submission-footer">
+            <div><strong id="evidenceCount">0 of 5 files checked</strong>
+              <p>Checklist progress stays in this browser. It does not upload images.</p>
+            </div><a class="btn primary" href="resources/setup-checklist.html" target="_blank">Open printable
+              instructions ↗</a>
+          </div>
+          <div class="two-col">
+            <div class="card"><span class="card-caption">SCREENSHOT TIP</span>
+              <h3>Capture clearly</h3>
+              <p>Windows: <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>. Include commands and results. Hide private
+                notifications, account information and unrelated device identifiers.</p>
+              <p>Put files in a folder such as <code>Session02_SetupEvidence</code>, then submit to your instructor's
+                <strong>designated course platform</strong>.
+              </p>
+            </div>
+            <div class="card"><span class="card-caption">IF SOMETHING IS BLOCKED</span>
+              <h3>Report a real blocker</h3>
+              <p>Submit the evidence you have, screenshot the error and briefly explain <em>what worked, what failed,
+                  and the next step</em>. An incomplete setup is not a reason to invent results.</p>
+            </div>
+          </div>
+          <div class="notice info"><strong>More practice:</strong> Want the same app on a real Xiaomi, Redmi, POCO,
+            Samsung or other Android phone? Open the <button class="inline-action" data-step="android"
+              type="button">Android phone extension →</button> after class. It does not replace the five required web
+            screenshots.</div>
+          <section class="postlab" aria-labelledby="postlab-title">
+            <div class="postlab-heading">
+              <div><span class="overline">AFTER THE LAB · OPTIONAL CREATIVE CHALLENGE</span>
+                <h2 id="postlab-title">Try It Yourself</h2>
+                <p>Remember the tiny screen you explored while Flutter was downloading? Try these creative
+                  mini-challenges for a few extra minutes. <strong>No code or additional screenshots required.</strong>
+                </p>
+              </div><button class="btn secondary small" type="button" data-step="4">Open the playground ↗</button>
+            </div>
+            <div class="practice-grid">
+              <article class="practice-card">
+                <div class="practice-card-heading"><span class="practice-number">01</span>
+                  <h3>My app, my identity</h3>
+                </div>
+                <p>Write a completely original greeting, choose the symbol that fits you, and try two different color
+                  palettes. Which combination feels best?</p><label class="practice-check"><input type="checkbox"
+                    data-practice="0"><span>I personalized the app's message, icon and colors.</span></label>
+              </article>
+              <article class="practice-card">
+                <div class="practice-card-heading"><span class="practice-number">02</span>
+                  <h3>Light or dark?</h3>
+                </div>
+                <p>Switch between light and dark mode. Decide which makes your content easiest to read, and explain why
+                  to a classmate.</p><label class="practice-check"><input type="checkbox" data-practice="1"><span>I
+                    compared the two display modes.</span></label>
+              </article>
+              <article class="practice-card">
+                <div class="practice-card-heading"><span class="practice-number">03</span>
+                  <h3>Give it some life</h3>
+                </div>
+                <p>Use the Like and Tap me buttons, then choose <strong>Surprise me!</strong> How does the screen
+                  respond when you interact with it?</p><label class="practice-check"><input type="checkbox"
+                    data-practice="2"><span>I explored the on-screen interactions.</span></label>
+              </article>
+            </div>
+            <p class="postlab-progress" id="postlabProgress" role="status" aria-live="polite">0 of 3 creative challenges
+              checked</p>
+            <div class="teacher-note compact"><img src="images/dash-teacher.webp" alt="Dash the Flutter teacher">
+              <div><strong>Dash's reminder</strong>
+                <p>The playground was a visual simulation, not your actual Flutter program. Your <strong>real first
+                    app</strong> is the one you launched in Chrome or Edge and captured for Evidence 05. Dart syntax
+                  begins in Session 03.</p>
+              </div>
+            </div>
+          </section>
+          <div class="whats-next"><span class="overline">WHAT'S NEXT?</span>
+            <div class="next-cards">
+              <div><span>SESSION 03, 04</span>
+                <h3>Dart Programming Basics</h3>
+                <p>Variables, types, operators, control flow and core syntax—learn what powers Flutter apps.</p>
+              </div>
+              <div><span>SESSION 05</span>
+                <h3>Inside Your First Flutter App</h3>
+                <p>Understand the generated project, edit the starter UI, explore widgets and learn Hot Reload.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="lesson" data-panel="android" aria-labelledby="android-title" hidden>
+          <div class="section-top"><span class="overline">OPTIONAL · AFTER CLASS</span><span class="duration">ANDROID
+              PATH</span></div>
+          <h1 id="android-title">Run the same app on your Android phone</h1>
+          <p class="lead">This pathway explains Android Studio, the Android SDK and using a <strong>physical</strong>
+            phone, including Xiaomi/Redmi/POCO. It is <strong>not required</strong> for the 120-minute core lab and does
+            not replace the five web screenshots.</p>
+          <figure class="diagram"><img src="images/android-flow.svg"
+              alt="Android Studio provides Android SDK; VS Code builds Flutter project; phone runs the app after USB debugging and authorization">
+            <figcaption>Original diagram · Use VS Code as the editor; Android Studio conveniently provides Android
+              platform tools.</figcaption>
+          </figure>
+          <div class="notice warning"><strong>Before continuing:</strong> This path needs more storage and downloads. A
+            physical phone can avoid the RAM costs of an emulator. Use only a phone and computer you own or are
+            authorized to debug.</div>
+
+          <div class="numbered">
+            <span>01</span>
+            <div>
+              <h3>Install Android Studio and the Android SDK</h3>
+
+              <p>
+                Android Studio provides the tools needed to build and
+                run Flutter applications on Android devices. You can
+                continue writing code in VS Code.
+              </p>
+
+              <h4>A. Download and install Android Studio</h4>
+
+              <ol class="instruction-list">
+                <li>
+                  Visit the
+                  <a href="https://developer.android.com/studio" target="_blank" rel="noopener">
+                    official Android Studio website
+                  </a>.
+                </li>
+                <li>
+                  Download the stable installer for your operating
+                  system. For Windows, use the recommended installer.
+                </li>
+                <li>
+                  Run the installer and follow the setup wizard.
+                </li>
+                <li>
+                  Allow Android Studio to download its required
+                  components during the first launch.
+                </li>
+              </ol>
+
+              <figure class="diagram android-figure">
+                <a href="images/android-install.webp" target="_blank">
+                  <img src="images/android-install.webp" alt="Android Studio first-run setup wizard" loading="lazy">
+                </a>
+                <figcaption>
+                  Android Studio setup wizard · Book Figure 1.6,
+                  page 11. Click the image to enlarge.
+                </figcaption>
+              </figure>
+
+              <div class="notice info">
+                <strong>Do I need Java separately?</strong>
+                <p>
+                  No, normally not. Android Studio includes
+                  JetBrains Runtime (JBR), a Java Development Kit
+                  used by Android development tools such as Gradle.
+                  Flutter normally detects it automatically.
+                </p>
+              </div>
+
+              <h4>B. Open Android SDK Manager</h4>
+
+              <ol class="instruction-list">
+                <li>Launch Android Studio.</li>
+                <li>
+                  From the Welcome screen, choose
+                  <strong>More Actions → SDK Manager</strong>.
+                </li>
+                <li>
+                  If a project is already open, use
+                  <strong>Tools → SDK Manager</strong>.
+                </li>
+              </ol>
+
+              <figure class="diagram android-figure">
+                <a href="images/android-sdk-manager.webp" target="_blank">
+                  <img src="images/android-sdk-manager.webp" alt="Android Studio Welcome screen showing SDK Manager"
+                    loading="lazy">
+                </a>
+                <figcaption>
+                  Opening SDK Manager · Book Figure 1.7, page 12.
+                </figcaption>
+              </figure>
+
+              <h4>C. Install an Android SDK Platform</h4>
+
+              <p>
+                An Android SDK Platform provides the API libraries
+                needed to compile applications for an Android version.
+                This is different from the Flutter SDK.
+              </p>
+
+              <ol class="instruction-list">
+                <li>Open the <strong>SDK Platforms</strong> tab.</li>
+                <li>
+                  Select the Android platform required by the
+                  current Flutter setup guide.
+                </li>
+                <li>
+                  If the platform shows <strong>Not installed</strong>,
+                  select its checkbox.
+                </li>
+                <li>Click <strong>Apply</strong>.</li>
+              </ol>
+
+              <figure class="diagram android-figure">
+                <a href="images/android-sdk-platforms.webp" target="_blank">
+                  <img src="images/android-sdk-platforms.webp" alt="Android SDK Platforms tab" loading="lazy">
+                </a>
+                <figcaption>
+                  Android SDK Platforms · Book Figure 1.8, page 13.
+                  Platform versions may differ.
+                </figcaption>
+              </figure>
+
+              <h4>D. Install Android SDK Tools</h4>
+
+              <p>
+                Open the <strong>SDK Tools</strong> tab.
+                The tools provide the compiler-related utilities,
+                device communication, debugging and other capabilities
+                needed for Android development.
+              </p>
+
+              <ol class="instruction-list">
+                <li>Open <strong>SDK Tools</strong>.</li>
+                <li>Check the required SDK components.</li>
+                <li>
+                  Include Android SDK Build-Tools, Command-line Tools
+                  and Platform-Tools. Follow the current Flutter guide
+                  for additional required components such as CMake
+                  and NDK.
+                </li>
+                <li>
+                  Android Emulator is used for virtual devices.
+                  Our initial Android exercise uses a physical phone.
+                </li>
+                <li>Click <strong>Apply</strong>.</li>
+              </ol>
+
+              <figure class="diagram android-figure">
+                <a href="images/android-sdk-tools.webp" target="_blank">
+                  <img src="images/android-sdk-tools.webp" alt="Android Studio SDK Tools selection" loading="lazy">
+                </a>
+                <figcaption>
+                  SDK Tools · Book Figure 1.9, page 14.
+                  Follow current documentation for tool requirements.
+                </figcaption>
+              </figure>
+
+              <h4>E. Confirm the SDK installation</h4>
+
+              <ol class="instruction-list">
+                <li>
+                  Review the components listed in the
+                  installation confirmation window.
+                </li>
+                <li>Click <strong>OK</strong>.</li>
+                <li>Allow the required components to download.</li>
+                <li>
+                  Wait for installation to finish, then close
+                  SDK Manager.
+                </li>
+              </ol>
+
+              <figure class="diagram android-figure">
+                <a href="images/android-confirm-install.webp" target="_blank">
+                  <img src="images/android-confirm-install.webp" alt="Android SDK component installation confirmation"
+                    loading="lazy">
+                </a>
+                <figcaption>
+                  Confirm SDK installation · Book Figure 1.10,
+                  page 15.
+                </figcaption>
+              </figure>
+
+              <h4>F. Verify Java and Android configuration</h4>
+
+              <p>
+                Return to the VS Code terminal and check which
+                Android SDK and Java installation Flutter detects.
+              </p>
+
+              <div class="command">
+                <div class="command-bar">
+                  <span>Terminal · Detailed environment check</span>
+                  <button type="button" class="copy-btn" data-copy="flutter doctor -v">
+                    Copy
+                  </button>
+                </div>
+                <pre><code>flutter doctor -v</code></pre>
+              </div>
+
+              <p class="expected">
+                <strong>Expected:</strong> Flutter recognizes the
+                Android toolchain. Review the detected Java version
+                and Java binary path.
+              </p>
+
+              <h4>G. Accept Android SDK licenses</h4>
+
+              <p>
+                Android SDK packages have license agreements that
+                must be accepted before building Android apps.
+              </p>
+
+              <div class="command">
+                <div class="command-bar">
+                  <span>Terminal · Android licenses</span>
+                  <button type="button" class="copy-btn" data-copy="flutter doctor --android-licenses">
+                    Copy
+                  </button>
+                </div>
+                <pre><code>flutter doctor --android-licenses</code></pre>
+              </div>
+
+              <p>
+                Read the license prompts and accept the required terms.
+                Then run <code>flutter doctor</code> again.
+              </p>
+
+              <div class="checkpoint">
+                <strong>Checkpoint</strong>
+                <span>
+                  Android SDK tools installed, Java detected,
+                  and Android licenses accepted.
+                  You're ready to prepare your physical phone.
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+          <details class="android-emulator-guide">
+            <summary>
+              Optional · Run Flutter on an Android Emulator
+            </summary>
+
+            <p>
+              An Android Emulator creates a virtual Android device
+              on your computer. It is useful when you do not have
+              a physical Android phone, but it requires more
+              computer resources.
+            </p>
+
+            <ol class="instruction-list">
+              <li>
+                Open Android Studio and select
+                <strong>More Actions → Virtual Device Manager</strong>,
+                or <strong>Tools → Device Manager</strong>.
+              </li>
+              <li>
+                Click <strong>Create Virtual Device (+)</strong>.
+              </li>
+            </ol>
+
+            <figure class="diagram android-figure">
+              <a href="images/android-emulator-manager.webp" target="_blank">
+                <img src="images/android-emulator-manager.webp" alt="Android Device Manager" loading="lazy">
+              </a>
+              <figcaption>
+                Device Manager · Book Figure 1.12, page 16.
+              </figcaption>
+            </figure>
+
+            <ol class="instruction-list" start="3">
+              <li>Choose a phone profile and click Next.</li>
+              <li>
+                Select a compatible Android system image.
+                Download it if required.
+              </li>
+            </ol>
+
+            <figure class="diagram android-figure">
+              <a href="images/android-emulator-device.webp" target="_blank">
+                <img src="images/android-emulator-device.webp" alt="Choose an Android virtual device" loading="lazy">
+              </a>
+              <figcaption>
+                Select a virtual device · Book Figure 1.13,
+                page 17.
+              </figcaption>
+            </figure>
+
+            <ol class="instruction-list" start="5">
+              <li>
+                Review the device settings and graphics options.
+              </li>
+              <li>Click Finish to create the virtual device.</li>
+            </ol>
+
+            <figure class="diagram android-figure">
+              <a href="images/android-emulator-performance.webp" target="_blank">
+                <img src="images/android-emulator-performance.webp" alt="Android virtual device performance settings"
+                  loading="lazy">
+              </a>
+              <figcaption>
+                Emulator configuration · Book Figure 1.14,
+                page 18.
+              </figcaption>
+            </figure>
+
+            <ol class="instruction-list" start="7">
+              <li>
+                Click the Run icon beside your virtual device.
+              </li>
+              <li>
+                Wait for Android to start, then open your
+                Flutter project in VS Code.
+              </li>
+              <li>
+                Select the emulator as the target device
+                and press F5.
+              </li>
+            </ol>
+
+            <figure class="diagram android-figure">
+              <a href="images/android-emulator-running.webp" target="_blank">
+                <img src="images/android-emulator-running.webp" alt="Android emulator running" loading="lazy">
+              </a>
+              <figcaption>
+                Running emulator · Book Figure 1.15,
+                page 19.
+              </figcaption>
+            </figure>
+
+            <div class="notice info">
+              <strong>For students with limited hardware:</strong>
+              A physical Android device is often a more practical
+              testing option than running an emulator.
+            </div>
+          </details>
+
+          <div class="numbered"><span>02</span>
+            <div>
+              <h3>Enable Developer options and USB debugging</h3>
+              <div class="two-col">
+                <div class="card"><span class="card-caption">GENERIC ANDROID / SAMSUNG</span>
+                  <h4>Manufacturer-dependent route</h4>
+                  <p>Open <strong>Settings → About phone → Software information</strong> (where available), tap
+                    <strong>Build number</strong> repeatedly until Developer options is enabled, then enable <strong>USB
+                      debugging</strong>. Menus can vary by Android version.
+                  </p>
+                </div>
+                <div class="card"><span class="card-caption">XIAOMI / REDMI / POCO</span>
+                  <h4>HyperOS / MIUI route</h4>
+                  <p>Open <strong>Settings → About phone → Detailed info and specs</strong>, tap <strong>OS/MIUI
+                      version</strong> repeatedly, then find <strong>Additional settings → Developer options → USB
+                      debugging</strong>. Names vary with firmware.</p><a
+                    href="https://www.mi.com/global/support/faq/details/KA-168765/" target="_blank"
+                    rel="noopener">Xiaomi official guide ↗</a>
+                </div>
+              </div>
+              <p>Read any on-phone warnings. You normally do <strong>not</strong> need to enable unknown
+                security-sensitive switches such as USB debugging (security settings) or USB installation permissions
+                unless an official model-specific workflow explicitly requires them.</p>
+            </div>
+          </div>
+          <div class="numbered"><span>03</span>
+            <div>
+              <h3>Connect the phone, then verify it</h3>
+              <ol class="instruction-list">
+                <li>Connect with a <strong>USB data cable</strong> (a charging-only cable cannot carry debugging data).
+                </li>
+                <li>Unlock the phone. If prompted, allow USB debugging for <strong>your trusted computer</strong>.</li>
+                <li>On Windows, install the correct <a href="https://developer.android.com/studio/run/oem-usb"
+                    target="_blank" rel="noopener">official OEM USB driver ↗</a> only if required.</li>
+                <li>Run <code>flutter devices</code> and look for an entry with an Android platform or your connected
+                  phone.</li>
+              </ol>
+              <div class="command">
+                <div class="command-bar"><span>Find connected phone</span><button class="copy-btn"
+                    data-copy="flutter devices">Copy</button></div>
+                <pre><code>flutter devices</code></pre>
+              </div>
+              <p class="expected"><strong>Expected:</strong> your Android device appears in the list. The device ID will
+                be different on each computer.</p>
+            </div>
+          </div>
+          <div class="numbered"><span>04</span>
+            <div>
+              <h3>Run the existing app on the phone</h3>
+              <p>Open <code>setup_check_app</code> in VS Code, select your connected Android device from the device
+                selector, then press <kbd>F5</kbd>. Or use this command with the <strong>actual</strong> ID from the
+                devices list:</p>
+              <div class="command">
+                <div class="command-bar"><span>Device-ID template · replace placeholder</span><button class="copy-btn"
+                    data-copy="flutter run -d YOUR_DEVICE_ID">Copy</button></div>
+                <pre><code>flutter run -d YOUR_DEVICE_ID</code></pre>
+              </div>
+              <p>Make sure the counter app appears on the real phone. Android's first build may download additional
+                Gradle dependencies and may need a good connection.</p>
+            </div>
+          </div>
+          <div class="activity">
+            <div class="activity-header"><span class="activity-icon">!</span>
+              <div>
+                <h3>When your phone doesn't appear</h3>
+                <p>Work through these checks in order.</p>
+              </div>
+            </div>
+            <div class="trouble-grid">
+              <div>① <strong>Cable:</strong> try a known data cable and USB port.</div>
+              <div>② <strong>Authorization:</strong> unlock the phone and accept its RSA prompt.</div>
+              <div>③ <strong>Settings:</strong> verify USB debugging is enabled.</div>
+              <div>④ <strong>Driver:</strong> verify Windows OEM driver and Device Manager.</div>
+              <div>⑤ <strong>Tools:</strong> check Android SDK and <code>flutter doctor</code>.</div>
+              <div>⑥ <strong>Retry:</strong> reconnect and run <code>flutter devices</code> again.</div>
+            </div>
+          </div>
+          <div class="checkpoint"><strong>Optional proof</strong><span><code>06-android-device.png</code>: phone listed
+              by <code>flutter devices</code>. <code>07-running-on-phone.jpg</code>: a photo or screenshot of the actual
+              app on your phone. Hide serial numbers or private information.</span></div>
+          <div class="notice subtle"><strong>After testing:</strong> consider turning USB debugging off when you no
+            longer need it. Wireless debugging is an advanced alternative, not a requirement for this lab.</div>
+          <div class="link-row"><a href="https://docs.flutter.dev/platform-integration/android/setup" target="_blank"
+              rel="noopener">Official Flutter Android setup ↗</a><a
+              href="https://developer.android.com/studio/run/device" target="_blank" rel="noopener">Android hardware
+              devices ↗</a><a href="https://www.mi.com/ph/support/article/KA-06515/" target="_blank"
+              rel="noopener">Xiaomi USB debugging ↗</a></div>
+        </section>
+        <footer class="lesson-footer">
+          <div class="footer-left"><span id="pageIndex">STEP 01 OF 08</span><span id="footerDuration">5 minute
+              segment</span></div>
+          <div class="footer-actions"><button id="prevBtn" class="btn ghost" type="button">← Previous</button><button
+              id="markBtn" class="btn secondary" type="button">✓ Mark completed</button><button id="switchPlayBtn"
+              class="btn playful" type="button" hidden>✦ Play while downloading</button><button id="nextBtn"
+              class="btn primary" type="button">Next step →</button></div>
+        </footer>
+      </main>
+      <footer class="global-footer">SICT235 · Mobile Applications Development Using Flutter · UNRWA Gaza Training Centre
+        · 2026–2027 <span>© Educational teaching resource</span></footer>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <dialog id="completionDialog" class="completion-dialog" aria-labelledby="completionTitle"
+    aria-describedby="completionDescription">
+
+    <div class="completion-content">
+
+      <div id="completionConfetti" class="completion-confetti" aria-hidden="true"></div>
+
+      <img class="completion-mascot" src="images/dash-teacher.webp" alt="Dash, your Flutter learning companion">
+
+      <span class="completion-label">
+        SICT235 · SESSION 02 COMPLETED
+      </span>
+
+      <h2 id="completionTitle">
+        Congratulations!
+      </h2>
+
+      <p id="completionDescription">
+        You've completed your Flutter environment laboratory!
+      </p>
+
+      <div class="completion-status">
+        <span>✓ Lesson progress saved</span>
+        <span id="completionEvidence">
+          0 of 5 screenshots checked
+        </span>
+      </div>
+
+      <div class="completion-next">
+        <span>WHAT'S NEXT?</span>
+        <h3>Session 03 · Dart Fundamentals</h3>
+      </div>
+
+      <p class="completion-reminder">
+        Remember to submit your setup screenshots
+        through the classroom.
+      </p>
+
+      <div class="completion-actions">
+        <button type="button" id="completionReview" class="btn secondary">
+          Review evidence
+        </button>
+
+        <button type="button" id="completionClose" class="btn primary">
+          Back to lesson
+        </button>
+      </div>
+
+    </div>
+  </dialog>
+
+</body>
+
+</html>
